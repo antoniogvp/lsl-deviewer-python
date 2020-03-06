@@ -95,12 +95,12 @@
     <item>
      <widget class="QLabel" name="samplingRateLabel">
       <property name="text">
-       <string>Sampling rate [Hz]:</string>
+       <string>Update rate [Hz]:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="samplingRateEdit">
+     <widget class="QLineEdit" name="updateRateEdit">
       <property name="text">
        <string>15</string>
       </property>

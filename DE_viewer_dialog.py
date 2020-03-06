@@ -18,24 +18,24 @@ class DialogDE(QtWidgets.QDialog, Ui_MainWindow):
             chkBoxItem.setCheckState(QtCore.Qt.Unchecked)
             chkBoxItem.setText(stream)
             self.listStreams.addItem(chkBoxItem)
-        self.samplingRateEdit.setValidator(QtGui.QIntValidator(0, 2147483647))
+        self.updateRateEdit.setValidator(QtGui.QIntValidator(0, 2147483647))
             
     def returnWindowParameters(self):
-        sampling_rate = self.samplingRateEdit.text()
+        update_rate = self.updateRateEdit.text()
         checkedItems = []
         for index in range(self.listStreams.count()):
             if self.listStreams.item(index).checkState() == QtCore.Qt.Checked:
                 checkedItems.append(index)
-        return checkedItems, sampling_rate
+        return checkedItems, update_rate
     
     def checkLineEditPattern(self):
         parameters_ok = True
         
-        if self.samplingRateEdit.text() == "":
+        if self.updateRateEdit.text() == "":
             parameters_ok = False
         
         if parameters_ok is False:
-            QtWidgets.QMessageBox.critical(None,'Error','Sampling rate was not correctly specified.',QtWidgets.QMessageBox.Cancel)
+            QtWidgets.QMessageBox.critical(None,'Error','Update rate was not correctly specified.',QtWidgets.QMessageBox.Cancel)
                 
         return parameters_ok
             
