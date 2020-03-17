@@ -124,6 +124,7 @@ class Viewer(QtWidgets.QMainWindow, Ui_MainWindow):
         self.close()
         
 def Start():
+    v = None
     streams = resolve_stream()
     
     listStreams = classifyStreamInlet(streams)
@@ -154,9 +155,9 @@ def main():
 
 if __name__ == '__main__':
     import sys
-    v = Start()
     app = QtWidgets.QApplication(sys.argv)
     app.setQuitOnLastWindowClosed(True)
+    v = Start()
     if (((sys.flags.interactive != 1) or not hasattr(QtCore, 'PYQT_VERSION')) ):
         app.instance().exec_()
     sys.exit(0)
